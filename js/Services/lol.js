@@ -29,5 +29,31 @@ export default {
           reject(err);
         });
     })
+  },
+  getMatch(id){
+    return new Promise((resolve, reject)=>{
+      var url="http://api.sportradar.us/lol-t1/en/matches/"+id+"/summary.json?api_key="+config.api_key;
+      superAgent
+      .get(url)
+      .then((response)=>{
+        resolve(response.body);
+      },
+        (err)=>{
+          reject(err);
+        });
+    })
+  },
+  getTourSchedule(id){
+    return new Promise((resolve, reject)=>{
+     var url = "http://api.sportradar.us/lol-t1/en/tournaments/" + id + "/schedule.json?api_key=" + config.api_key;
+      superAgent
+      .get(url)
+      .then((response)=>{
+        resolve(response.body);
+      },
+        (err)=>{
+          reject(err);
+        });
+    })
   }
 };

@@ -14,6 +14,7 @@ import {
   View,
 } from "native-base";
 import lol from "../../Services/lol";
+import NavStore from "../../NavStore";
 
 class LOLToday extends React.Component {
   constructor(props) {
@@ -49,7 +50,10 @@ class LOLToday extends React.Component {
     } 
     else {
       return <Content>
-          <List dataArray={this.state.body.sport_events} renderRow={event => <ListItem>
+          <List dataArray={this.state.body.sport_events} renderRow={event => <ListItem {...this.props} onPress={() => {
+                  NavStore.setMatchId(event.id);
+                  this.props.navigation.navigate("LOLMatchStats");
+                }}>
                 <Card {...this.props} id={event.id}>
                   <CardItem>
                     <View style={{ flex: 1 }}>

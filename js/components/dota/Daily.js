@@ -14,6 +14,7 @@ import {
   View,
 } from "native-base";
 import dota from "../../Services/dota";
+import NavStore from "../../NavStore";
 
 class DOTAToday extends React.Component {
   constructor(props) {
@@ -48,7 +49,7 @@ class DOTAToday extends React.Component {
         </Content>;
     } else {
         return <Content>
-            <List dataArray={this.state.body.sport_events} renderRow={event => <ListItem>
+            <List dataArray={this.state.body.sport_events} renderRow={event => <ListItem {...this.props} onPress={()=>{NavStore.setMatchId(event.id); this.props.navigation.navigate('DOTAMatchStats');}} >
                   <Card {...this.props} id={event.id}>
                     <CardItem>
                       <View style={{ flex: 1 }}>

@@ -14,6 +14,7 @@ import {
   View
 } from "native-base";
 import schedule from "../../Services/dota";
+import NavStore from '../../NavStore';
 
 class DOTASchedule extends React.Component {
   constructor(props) {
@@ -46,11 +47,8 @@ class DOTASchedule extends React.Component {
           <List
             dataArray={this.state.tournaments}
             renderRow={tournament => (
-              <ListItem>
+              <ListItem onPress={()=>{NavStore.setTourId(tournament.id); this.props.navigation.navigate('DOTATourSchedule')}} >
                 <Text>{tournament.name}</Text>
-                {/* <Right style={{alignSelf:"flex-end"}}>
-                      <Icon name="arrow-forward" />
-                    </Right> */}
               </ListItem>
             )}
           />

@@ -12,6 +12,10 @@ import LOLSchedule from '../lol/Schedule';
 import CSGOToday from '../csgo/Daily';
 import DOTAToday from '../dota/Daily';
 import LOLToday from '../lol/Daily';
+import CSGOTalk from '../csgo/Talk';
+import DOTATalk from '../dota/Talk';
+import LOLTalk from '../lol/Talk';
+
 import NavStore from '../../NavStore';
 @observer
 class Home extends Component {
@@ -25,15 +29,15 @@ class Home extends Component {
         <Content padder>
           {NavStore.topNav == 0 && NavStore.bottonNav == 0 ? <CSGOToday {...this.props} /> : null}
           {NavStore.topNav == 0 && NavStore.bottonNav == 1 ? <CSGOSchedule {...this.props} /> : null}
-          {NavStore.topNav == 0 && NavStore.bottonNav == 2 ? <CSGOToday {...this.props} /> : null}
+          {NavStore.topNav == 0 && NavStore.bottonNav == 2 ? <CSGOTalk {...this.props} /> : null}
 
           {NavStore.topNav == 1 && NavStore.bottonNav == 0 ? <DOTAToday {...this.props} /> : null}
           {NavStore.topNav == 1 && NavStore.bottonNav == 1 ? <DOTASchedule {...this.props} /> : null}
-          {NavStore.topNav == 1 && NavStore.bottonNav == 2 ? <DOTAToday {...this.props} /> : null}
+          {NavStore.topNav == 1 && NavStore.bottonNav == 2 ? <DOTATalk {...this.props} /> : null}
 
           {NavStore.topNav == 2 && NavStore.bottonNav == 0 ? <LOLToday {...this.props} /> : null}
           {NavStore.topNav == 2 && NavStore.bottonNav == 1 ? <LOLSchedule {...this.props} /> : null}
-          {NavStore.topNav == 2 && NavStore.bottonNav == 2 ? <LOLToday {...this.props} /> : null}
+          {NavStore.topNav == 2 && NavStore.bottonNav == 2 ? <LOLTalk {...this.props} /> : null}
         </Content>
         <Foot  />
       </Container>;

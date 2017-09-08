@@ -14,6 +14,7 @@ import {
   View
 } from "native-base";
 import schedule from "../../Services/lol";
+import NavStore from "../../NavStore";
 
 class LOLSchedule extends React.Component {
   constructor(props) {
@@ -41,21 +42,14 @@ class LOLSchedule extends React.Component {
         </Content>
       );
     } else {
-      return (
-        <Content>
-          <List
-            dataArray={this.state.tournaments}
-            renderRow={tournament => (
-              <ListItem>
+      return <Content>
+          <List dataArray={this.state.tournaments} renderRow={tournament => <ListItem onPress={() => {
+                  NavStore.setTourId(tournament.id);
+                  this.props.navigation.navigate("LOLTourSchedule");
+                }}>
                 <Text>{tournament.name}</Text>
-                {/* <Right style={{alignSelf:"flex-end"}}>
-                      <Icon name="arrow-forward" />
-                    </Right> */}
-              </ListItem>
-            )}
-          />
-        </Content>
-      );
+              </ListItem>} />
+        </Content>;
     }
   }
 }

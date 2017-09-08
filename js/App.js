@@ -11,6 +11,10 @@ import Splash from './components/Splash/Splash';
 import Settings from './components/Settings/Settings';
 import CSGOMatchStats from './components/csgo/csgoMatchStats/CSGOMatchStats';
 import CSGOTourSchedule from './components/csgo/csgoTourSchedule/CSGOTourSchedule';
+import DOTAMatchStats from './components/dota/dotaMatchStats/DOTAMatchStats';
+import DOTATourSchedule from './components/dota/dotaTourSchedule/DOTATourSchedule';
+import LOLMatchStats from "./components/lol/lolMatchStats/LOLMatchStats";
+import LOLTourSchedule from "./components/lol/lolTourSchedule/LOLTourSchedule";
 
 //console.ignoredYellowBox = ["Setting a timer"];
 
@@ -21,7 +25,11 @@ const AppNavigator = StackNavigator({
     Settings: {screen: Settings},
     SignUp: {screen: SignUp},
     CSGOMatchStats: {screen: CSGOMatchStats},
-    CSGOTourSchedule: {screen: CSGOTourSchedule}
+    CSGOTourSchedule: {screen: CSGOTourSchedule},
+    DOTAMatchStats: {screen: DOTAMatchStats},
+    DOTATourSchedule: {screen: DOTATourSchedule},
+    LOLMatchStats: {screen: LOLMatchStats},
+    LOLTourSchedule: {screen: LOLTourSchedule}
 },
 {
     initialRouteName: "Splash",
