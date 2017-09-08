@@ -1,0 +1,248 @@
+{
+    "generated_at": "2017-09-07T19:15:12+00:00",
+    "schema": "http:\/\/schemas.sportradar.com\/bsa\/json\/v1\/endpoints\/csgo\/tournament_info.json",
+    "tournament": {
+        "id": "sr:tournament:2392",
+        "name": "ESL Pro League",
+        "sport": {
+            "id": "sr:sport:109",
+            "name": "Counter-Strike"
+        },
+        "category": {
+            "id": "sr:category:1041",
+            "name": "ESL CS:GO"
+        },
+        "current_season": {
+            "id": "sr:season:42980",
+            "name": "ESL Pro League Season VI - North America",
+            "start_date": "2017-08-15",
+            "end_date": "2017-12-01",
+            "year": "2017"
+        }
+    },
+    "season": {
+        "id": "sr:season:42980",
+        "name": "ESL Pro League Season VI - North America",
+        "start_date": "2017-08-15",
+        "end_date": "2017-12-01",
+        "year": "2017",
+        "tournament_id": "sr:tournament:2392"
+    },
+    "round": {
+        "type": "group",
+        "number": 2
+    },
+    "coverage_info": {
+        "live_coverage": false
+    },
+    "groups": [
+        {
+            "name": "ESL Pro League Finals - Playoffs",
+            "teams": [
+                {
+                    "id": "sr:competitor:243414",
+                    "name": "Complexity",
+                    "country": "USA",
+                    "country_code": "USA",
+                    "abbreviation": "COM"
+                },
+                {
+                    "id": "sr:competitor:234922",
+                    "name": "SK Gaming",
+                    "country": "Germany",
+                    "country_code": "DEU",
+                    "abbreviation": "SKG"
+                },
+                {
+                    "id": "sr:competitor:235102",
+                    "name": "Cloud9",
+                    "country": "USA",
+                    "country_code": "USA",
+                    "abbreviation": "CL9"
+                },
+                {
+                    "id": "sr:competitor:235890",
+                    "name": "Counter Logic Gaming",
+                    "country": "USA",
+                    "country_code": "USA",
+                    "abbreviation": "CLG"
+                },
+                {
+                    "id": "sr:competitor:235106",
+                    "name": "Luminosity Gaming",
+                    "country": "Canada",
+                    "country_code": "CAN",
+                    "abbreviation": "LUM"
+                },
+                {
+                    "id": "sr:competitor:235852",
+                    "name": "Team Liquid",
+                    "country": "Netherlands",
+                    "country_code": "NLD",
+                    "abbreviation": "LIQ"
+                },
+                {
+                    "id": "sr:competitor:243420",
+                    "name": "Splyce",
+                    "country": "USA",
+                    "country_code": "USA",
+                    "abbreviation": "SPY"
+                },
+                {
+                    "id": "sr:competitor:243412",
+                    "name": "Optic Gaming",
+                    "country": "USA",
+                    "country_code": "USA",
+                    "abbreviation": "OPT"
+                },
+                {
+                    "id": "sr:competitor:243418",
+                    "name": "NRG Esports",
+                    "country": "USA",
+                    "country_code": "USA",
+                    "abbreviation": "NRG"
+                },
+                {
+                    "id": "sr:competitor:220610",
+                    "name": "Renegades",
+                    "country": "Australia",
+                    "country_code": "AUS",
+                    "abbreviation": "REN"
+                },
+                {
+                    "id": "sr:competitor:261993",
+                    "name": "Immortals",
+                    "country": "USA",
+                    "country_code": "USA",
+                    "abbreviation": "IMM"
+                },
+                {
+                    "id": "sr:competitor:281295",
+                    "name": "Rogue",
+                    "country": "USA",
+                    "country_code": "USA",
+                    "abbreviation": "ROG"
+                },
+                {
+                    "id": "sr:competitor:312328",
+                    "name": "Misfits",
+                    "country": "Great Britain",
+                    "country_code": "GBR",
+                    "abbreviation": "MSF"
+                },
+                {
+                    "id": "sr:competitor:313861",
+                    "name": "Ghost Gaming",
+                    "country": "USA",
+                    "country_code": "USA",
+                    "abbreviation": "GHO"
+                },
+                {
+                    "id": "sr:competitor:318125",
+                    "name": "Enigma6 Group",
+                    "country": "USA",
+                    "country_code": "USA",
+                    "abbreviation": "E6"
+                },
+                {
+                    "id": "sr:competitor:220602",
+                    "name": "Fnatic",
+                    "country": "Great Britain",
+                    "country_code": "GBR",
+                    "abbreviation": "FNA"
+                },
+                {
+                    "id": "sr:competitor:220604",
+                    "name": "Mousesports",
+                    "country": "Germany",
+                    "country_code": "DEU",
+                    "abbreviation": "MOU"
+                },
+                {
+                    "id": "sr:competitor:220606",
+                    "name": "Natus Vincere",
+                    "country": "Ukraine",
+                    "country_code": "UKR",
+                    "abbreviation": "NAV"
+                },
+                {
+                    "id": "sr:competitor:220608",
+                    "name": "Ninjas In Pyjamas",
+                    "country": "Sweden",
+                    "country_code": "SWE",
+                    "abbreviation": "NIP"
+                },
+                {
+                    "id": "sr:competitor:220614",
+                    "name": "Team Envyus",
+                    "country": "USA",
+                    "country_code": "USA",
+                    "abbreviation": "ENV"
+                },
+                {
+                    "id": "sr:competitor:220620",
+                    "name": "Astralis",
+                    "country": "Denmark",
+                    "country_code": "DNK",
+                    "abbreviation": "AST"
+                },
+                {
+                    "id": "sr:competitor:234918",
+                    "name": "Hellraisers",
+                    "country": "Ukraine",
+                    "country_code": "UKR",
+                    "abbreviation": "HEL"
+                },
+                {
+                    "id": "sr:competitor:235104",
+                    "name": "G2 Esports",
+                    "country": "Spain",
+                    "country_code": "ESP",
+                    "abbreviation": "G2E"
+                },
+                {
+                    "id": "sr:competitor:241522",
+                    "name": "Faze Clan",
+                    "country": "USA",
+                    "country_code": "USA",
+                    "abbreviation": "FAZ"
+                },
+                {
+                    "id": "sr:competitor:250931",
+                    "name": "Godsent",
+                    "country": "Sweden",
+                    "country_code": "SWE",
+                    "abbreviation": "GOD"
+                },
+                {
+                    "id": "sr:competitor:282171",
+                    "name": "Heroic",
+                    "country": "Denmark",
+                    "country_code": "DNK",
+                    "abbreviation": "HRC"
+                },
+                {
+                    "id": "sr:competitor:308282",
+                    "name": "Big",
+                    "country": "Germany",
+                    "country_code": "DEU",
+                    "abbreviation": "BIG"
+                },
+                {
+                    "id": "sr:competitor:312248",
+                    "name": "North",
+                    "country": "Denmark",
+                    "country_code": "DNK",
+                    "abbreviation": "NRT"
+                },
+                {
+                    "id": "sr:competitor:371670",
+                    "name": "TEAM LDLC",
+                    "country": "France",
+                    "country_code": "FRA",
+                    "abbreviation": "TEA"
+                }
+            ]
+        }
+    ]
+}
