@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Container, Content, Card, CardItem, Text, Body } from "native-base";
+import { Container, Content, Card, CardItem,Fab,Icon, Text,View, Body } from "native-base";
 import { BackHandler } from "react-native";
 import {observer} from 'mobx-react';
 import Head from "../Head/Head";
@@ -25,7 +25,7 @@ class Home extends Component {
 
   render() {
     return <Container style={Styles.mainContainer}>
-        <Head {...this.props}  />
+        <Head {...this.props} />
         <Content padder>
           {NavStore.topNav == 0 && NavStore.bottonNav == 0 ? <CSGOToday {...this.props} /> : null}
           {NavStore.topNav == 0 && NavStore.bottonNav == 1 ? <CSGOSchedule {...this.props} /> : null}
@@ -39,7 +39,7 @@ class Home extends Component {
           {NavStore.topNav == 2 && NavStore.bottonNav == 1 ? <LOLSchedule {...this.props} /> : null}
           {NavStore.topNav == 2 && NavStore.bottonNav == 2 ? <LOLTalk {...this.props} /> : null}
         </Content>
-        <Foot  />
+        <Foot />
       </Container>;
   }
 }

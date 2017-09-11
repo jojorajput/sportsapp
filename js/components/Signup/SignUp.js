@@ -5,6 +5,7 @@ import {  Container,  Content,  Form,  Item,  Input,  Label,  Button,  Title,  B
 
 import Db from '../../Db';
 import Styles from "./Styles";
+import NavStore from '../../NavStore';
 
 const background = require("../../assets/login.jpeg");
 var auth;
@@ -27,7 +28,7 @@ class SignUp extends React.Component {
             var errMessage = error.message;
             alert(errMessage);
           });
-          auth.currentUser.displayName=this.state.username;
+          NavStore.userName = this.state.username;
           this.props.navigation.navigate("Login");
     }
   }

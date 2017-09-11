@@ -14,7 +14,7 @@ class CSGOSchedule extends React.Component {
     componentWillMount(){
     schedule.getTournaments().then(res => {
       this.setState({tournaments: res });
-    }, (err)=>{console.log(err)});
+    }, (err)=>{console.log(err,err.status)});
         
     }
 

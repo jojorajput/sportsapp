@@ -4,6 +4,7 @@ import {  Container,  Content,  Form,  Item,  Input,  Label,  Button,  Title,  B
 
 import Db from '../../Db';
 import {NavigationActions} from 'react-navigation';
+import NavStore from '../../NavStore';
 
 const background = require("../../assets/login.jpeg");
 var auth;
@@ -44,6 +45,10 @@ store(){
           this.state.email,
           this.state.password
         ).then(() =>{
+          if(NavStore.userName != "")
+            {
+              auth.currentUser.updateProfile({displayName: NavStore.userName});
+            }
           this.store();
        })
         .catch(error => {

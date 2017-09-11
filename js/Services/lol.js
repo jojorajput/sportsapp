@@ -21,7 +21,7 @@ export default {
   getToday(){
      return new Promise((resolve, reject)=>{
       const date = new Date();
-      var day= date.getFullYear()+"-0"+(date.getMonth()+1)+"-0"+date.getDate();
+      var day= date.getFullYear()+"-0"+(date.getMonth()+1)+"-"+date.getDate();
       var url= "http://api.sportradar.us/lol-t1/en/schedules/"+day+"/schedule.json?api_key="+config.api_key;
       superAgent.get(url).then((response) => {
           resolve(response.body);

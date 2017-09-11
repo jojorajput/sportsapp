@@ -28,6 +28,7 @@ class DOTAToday extends React.Component {
         this.setState({ body: res });
       }, err => {
         console.log(err);
+        console.log(err.status);
       });
   }
 

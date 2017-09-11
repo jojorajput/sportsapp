@@ -15,8 +15,10 @@ import DOTAMatchStats from './components/dota/dotaMatchStats/DOTAMatchStats';
 import DOTATourSchedule from './components/dota/dotaTourSchedule/DOTATourSchedule';
 import LOLMatchStats from "./components/lol/lolMatchStats/LOLMatchStats";
 import LOLTourSchedule from "./components/lol/lolTourSchedule/LOLTourSchedule";
-
-//console.ignoredYellowBox = ["Setting a timer"];
+import CSGOThread from './components/csgo/csgoTalk/thread';
+import DOTAThread from './components/dota/dotaTalk/thread';
+import LOLThread from './components/lol/lolTalk/thread';
+console.ignoredYellowBox = ["Setting a timer"];
 
 const AppNavigator = StackNavigator({
     Splash: {screen: Splash},
@@ -29,7 +31,11 @@ const AppNavigator = StackNavigator({
     DOTAMatchStats: {screen: DOTAMatchStats},
     DOTATourSchedule: {screen: DOTATourSchedule},
     LOLMatchStats: {screen: LOLMatchStats},
-    LOLTourSchedule: {screen: LOLTourSchedule}
+    LOLTourSchedule: {screen: LOLTourSchedule},
+    CSGOThread: {screen: CSGOThread},
+    DOTAThread: {screen: DOTAThread},
+    LOLThread: {screen: LOLThread}
+    
 },
 {
     initialRouteName: "Splash",
