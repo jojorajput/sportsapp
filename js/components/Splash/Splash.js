@@ -5,7 +5,15 @@ const background = require("../../assets/login.jpeg");
 import Styles from './Styles';
 import Db from '../../Db';
 import {NavigationActions} from 'react-navigation';
+import {observer} from 'mobx-react';
+import {create} from 'mobx-persist';
+import UserStore from '../../UserStore';
+
 var value;
+const hydrate = create({storage: AsyncStorage});
+const userStore = UserStore;
+
+
 class Splash extends React.Component {
     constructor(props){
         super(props);
@@ -15,25 +23,41 @@ class Splash extends React.Component {
     componentWillMount(){
         try{
             var auth = Db.getAuth();
-            AsyncStorage.getItem('@user', (err, result)=>{value=result;}).then(()=>{
-            var user = JSON.parse(value);
-
-            auth.signInWithEmailAndPassword(user.email.toString(), user.password.toString())
-            .then(()=>{
-                 this.props.navigation.dispatch(NavigationActions.reset({
-                    index: 0,
-                    actions: [
-                    NavigationActions.navigate({routeName:"Home"})]}
-                ));})
-            .catch((err)=>{alert(err)});
-            }).catch(()=>{ this.props.navigation.dispatch(NavigationActions.reset({
-                index: 0,
-                actions: [
-                    NavigationActions.navigate({routeName:"Login"})]
-            }
-            ));});
+            hydrate("user", userStore)
+              .then(usr => {
+                var user= usr.user;
+                auth
+                  .signInWithEmailAndPassword(user.email.toString(), user.password.toString())
+                  .then(() => {
+                    this.props.navigation.dispatch(NavigationActions.reset(
+                        {
+                          index: 0,
+                          actions: [
+                            NavigationActions.navigate({
+                              routeName: "Home"
+                            })
+                          ]
+                        }
+                      ));
+                  })
+                  .catch(err => {
+                    alert(err);
+                  });
+              })
+              .catch(err => {
+                this.props.navigation.dispatch(NavigationActions.reset(
+                    {
+                      index: 0,
+                      actions: [
+                        NavigationActions.navigate({
+                          routeName: "Login"
+                        })
+                      ]
+                    }
+                  ));
+              });
         } catch(err) {
-            //alert(err);            
+            //alert(err);     
             this.props.navigation.dispatch(NavigationActions.reset({
                 index: 0,
                 actions: [

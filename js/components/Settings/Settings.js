@@ -4,6 +4,14 @@ import {Container,Header, Left,Right, Body, Button, Title, Icon, Content, H1, Te
 import Styles from './Styles';
 import Db from '../../Db';
 import {NavigationActions} from 'react-navigation';
+import NavStore from '../../NavStore';
+
+import {observer} from 'mobx-react';
+import {create } from 'mobx-persist';
+import UserStore from '../../UserStore';
+
+const hydrate = create({ storage: AsyncStorage });
+const userStore = UserStore;
 var auth;
 class Settings extends React.Component {
     constructor(props){
@@ -11,7 +19,9 @@ class Settings extends React.Component {
         auth=Db.getAuth();
     }
     logout(){
-            AsyncStorage.removeItem('@user').then(()=>{auth.signOut(); 
+            //AsyncStorage.removeItem('@user')
+            userStore.setUser({})
+            .then(()=>{NavStore.userName=''; auth.signOut(); 
             this.props.navigation.dispatch(NavigationActions.reset({
                 index: 0,
                 actions: [NavigationActions.navigate({ routeName: "Login" })]

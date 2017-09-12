@@ -5,10 +5,18 @@ import {  Container,  Content,  Form,  Item,  Input,  Label,  Button,  Title,  B
 import Db from '../../Db';
 import {NavigationActions} from 'react-navigation';
 import NavStore from '../../NavStore';
+import {observer} from 'mobx-react';
+import {create} from 'mobx-persist';
+import Styles from "./Styles";
+import UserStore from '../../UserStore';
 
 const background = require("../../assets/login.jpeg");
 var auth;
-import Styles from './Styles';
+const hydrate = create({storage: AsyncStorage});
+const userStore = UserStore;
+hydrate('user', userStore);
+
+@observer
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +29,9 @@ class Login extends React.Component {
 
 store(){
     try{
-           AsyncStorage.setItem('@user', JSON.stringify(this.state)).then(()=>{
+          //  AsyncStorage.setItem('@user', JSON.stringify(this.state))
+           userStore.setUser(this.state)
+           .then(()=>{
              this.props.navigation.dispatch(NavigationActions.reset(
                  {
                    index: 0,
