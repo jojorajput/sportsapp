@@ -91,10 +91,8 @@ class DOTATourSchedule extends React.Component{
               <Grid>
                 <Row>
                   <Card>
-                    <CardItem style={{ flex: 1, alignSelf: "center" }}>
-                      <Text
-                        style={{ textAlign: "center", fontSize: 30 }}
-                      >
+                    <CardItem style={Styles.flxCenter}>
+                      <Text style={Styles.centerTx30}>
                         {this.state.body.tournament.name}
                       </Text>
                     </CardItem>
@@ -105,21 +103,18 @@ class DOTATourSchedule extends React.Component{
                           NavStore.setMatchId(event.id);
                           this.props.navigation.navigate("DOTAMatchStats");
                         }}>
-                        <View style={{ flex: 1, alignSelf: "flex-start" }}>
+                        <View style={Styles.flxStart}>
                           <Text>{event.competitors[0].name}</Text>
                         </View>
-                        <View style={{ flex: 1, alignSelf: "center" }}>
+                        <View style={Styles.flxCenter}>
                           <Text
-                            style={{
-                              textAlign: "center",
-                              fontSize: 20
-                            }}
+                            style={Styles.centerTx20}
                           >
                             Vs
                           </Text>
                         </View>
-                        <View style={{ flex: 1, alignSelf: "flex-end" }}>
-                          <Text style={{ textAlign: "right" }}>
+                        <View style={Styles.flxEnd}>
+                          <Text style={Styles.rightTx}>
                             {event.competitors[1].name}
                           </Text>
                         </View>

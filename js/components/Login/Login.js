@@ -14,7 +14,6 @@ const background = require("../../assets/login.jpeg");
 var auth;
 const hydrate = create({storage: AsyncStorage});
 const userStore = UserStore;
-hydrate('user', userStore);
 
 @observer
 class Login extends React.Component {
@@ -30,15 +29,13 @@ class Login extends React.Component {
 store(){
     try{
           //  AsyncStorage.setItem('@user', JSON.stringify(this.state))
-           userStore.setUser(this.state)
-           .then(()=>{
-             this.props.navigation.dispatch(NavigationActions.reset(
-                 {
-                   index: 0,
-                   actions: [NavigationActions.navigate({routeName: "Home"})]
-                 }
-               ));
-          });
+           userStore.setUser(this.state);
+            this.props.navigation.dispatch(NavigationActions.reset(
+                {
+                  index: 0,
+                  actions: [NavigationActions.navigate({routeName: "Home"})]
+                }
+              ));
         } catch(err){
           //handle errors here
           alert(err);
@@ -78,22 +75,22 @@ store(){
               <Form>
                 <Item floatingLabel>
                   <Label>Email</Label>
-                  <Input style={{ color: "#fff", textAlign: "center" }} onChangeText={email => this.setState(
+                  <Input style={Styles.ip} onChangeText={email => this.setState(
                         { email }
                       )} />
                 </Item>
                 <Item floatingLabel>
                   <Label>Password</Label>
-                  <Input style={{ color: "#fff", textAlign: "center" }} secureTextEntry={true} onChangeText={password => this.setState(
+                  <Input style={Styles.ip} secureTextEntry={true} onChangeText={password => this.setState(
                         { password }
                       )} />
                 </Item>
               </Form>
               <Button style={Styles.but} block primary onPress={() => this.login()}>
-                <Text style={{ color: "#fff" }}>Login</Text>
+                <Text style={Styles.ip}>Login</Text>
               </Button>
               <Button transparent style={{ alignSelf: "center", marginTop: 30 }} onPress={() => this.props.navigation.navigate("SignUp")}>
-                <Text style={{ color: "#fff" }}>Create Account</Text>
+                <Text style={Styles.ip}>Create Account</Text>
               </Button>
             </View>
           </Content>

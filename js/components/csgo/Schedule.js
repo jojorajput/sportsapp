@@ -3,6 +3,7 @@ import {Modal} from 'react-native';
 import {Card, CardItem, Content, Icon, List, ListItem, Right, Separator, Spinner, Text, View} from 'native-base';
 import schedule from '../../Services/csgo';
 import NavStore from '../../NavStore';
+import Styles from './Styles';
 
 class CSGOSchedule extends React.Component {
     constructor(props){
@@ -21,7 +22,7 @@ class CSGOSchedule extends React.Component {
     render(){
       if(this.state.tournaments===''){
         return <Content>
-            <View style={{alignSelf:'center', marginTop: 200}} >
+            <View style={Styles.dailyLoad} >
               <Text>Loading Tournament List</Text>
               <Spinner color="blue" />
             </View>

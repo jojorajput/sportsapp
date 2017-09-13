@@ -50,7 +50,7 @@ class DOTAMatchStats extends React.Component{
                   </Right>
                 </Header>
                 <Content>
-                  <View style={{ alignSelf: "center", marginTop: 200 }}>
+                  <View style={Styles.load}>
                     <Text>
                       Loading Match Stats
                     </Text>
@@ -81,7 +81,7 @@ class DOTAMatchStats extends React.Component{
               <Content>
                 <Card>
                   <CardItem>
-                    <View style={{ flex: 1 }}>
+                    <View style={Styles.flx1}>
                       <Text>
                         {
                           this.state.body.sport_event.competitors[0]
@@ -97,17 +97,17 @@ class DOTAMatchStats extends React.Component{
                           ")"}
                       </Text>
                     </View>
-                    <View style={{ flex: 1 }}>
-                      <Text style={{textAlign:"center", fontSize: 40 }}> Vs</Text>
+                    <View style={Styles.flx1}>
+                      <Text style={Styles.centerTx40}> Vs</Text>
                     </View>
-                    <View style={{ flex: 1 }}>
-                      <Text style={{ textAlign: "right" }}>
+                    <View style={Styles.flx1}>
+                      <Text style={Styles.rightTx}>
                         {
                           this.state.body.sport_event.competitors[1]
                             .name
                         }
                       </Text>
-                      <Text style={{ textAlign: "right" }}>
+                      <Text style={Styles.rightTx}>
                         {this.state.body.sport_event.competitors[1]
                           .country +
                           " (" +
@@ -118,7 +118,7 @@ class DOTAMatchStats extends React.Component{
                     </View>
                   </CardItem>
                   <CardItem>
-                    <View style={{ flex: 1, alignSelf: "flex-start" }}>
+                    <View style={Styles.flxStart}>
                       <Text>
                         Date:{" "}
                         {this.state.body.sport_event.scheduled.slice(
@@ -127,8 +127,8 @@ class DOTAMatchStats extends React.Component{
                         )}
                       </Text>
                     </View>
-                    <View style={{ flex: 1, alignSelf: "flex-end" }}>
-                      <Text style={{ textAlign: "right" }}>
+                    <View style={Styles.flxEnd}>
+                      <Text style={Styles.rightTx}>
                         Time:{" "}
                         {this.state.body.sport_event.scheduled.slice(
                           11,

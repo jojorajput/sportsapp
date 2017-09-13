@@ -12,8 +12,6 @@ import {
 } from "native-base";
 import NavStore from '../../NavStore';
 
-import Styles from "./Styles";
-
 class Foot extends React.Component {
   constructor(props) {
     super(props);

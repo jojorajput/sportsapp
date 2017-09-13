@@ -17,6 +17,7 @@ import {
 } from "native-base";
 import NavStore from "../../NavStore";
 import Db from "../../Db";
+import Styles from './Styles';
 
 var dota;
 var feed;
@@ -99,7 +100,7 @@ class DOTATalk extends React.Component {
     } else {
       return (
         <Content>
-          <View style={{ alignSelf: "center", marginTop: 200 }}>
+          <View style={Styles.load}>
             <Text>Loading Discussions</Text>
             <Spinner color="blue" />
           </View>

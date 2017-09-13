@@ -15,6 +15,7 @@ import {
 } from "native-base";
 import schedule from "../../Services/dota";
 import NavStore from '../../NavStore';
+import Styles from './Styles';
 
 class DOTASchedule extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class DOTASchedule extends React.Component {
     if (this.state.tournaments === "") {
       return (
         <Content>
-          <View style={{ alignSelf: "center", marginTop: 200 }}>
+          <View style={Styles.load}>
             <Text>Loading Tournament List</Text>
             <Spinner color="blue" />
           </View>

@@ -15,6 +15,7 @@ import {
 } from "native-base";
 import lol from "../../Services/lol";
 import NavStore from "../../NavStore";
+import Styles from './Styles';
 
 class LOLToday extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class LOLToday extends React.Component {
     if (this.state.body === "") {
       return (
         <Content>
-          <View style={{ alignSelf: "center", marginTop: 200 }}>
+          <View style={Styles.load}>
             <Text>Loading Today's Matches</Text>
             <Spinner color="blue" />
           </View>
@@ -43,7 +44,7 @@ class LOLToday extends React.Component {
       );
     }else if (this.state.body.sport_events.length==0) {
       return <Content>
-          <View style={{ alignSelf: "center", marginTop: 200 }}>
+          <View style={Styles.load}>
             <Text>No Matches Today</Text>
           </View>
         </Content>;
@@ -56,18 +57,18 @@ class LOLToday extends React.Component {
                 }}>
                 <Card {...this.props} id={event.id}>
                   <CardItem>
-                    <View style={{ flex: 1 }}>
+                    <View style={Styles.flx1}>
                       <Text> {event.competitors[0].name}</Text>
                     </View>
-                    <View style={{ flex: 1 }}>
+                    <View style={Styles.flx1}>
                       <Text style={{ fontSize: 40 }}> Vs</Text>
                     </View>
-                    <View style={{ flex: 1 }}>
+                    <View style={Styles.flx1}>
                       <Text> {event.competitors[1].name}</Text>
                     </View>
                   </CardItem>
                   <CardItem>
-                    <View style={{ flex: 1, alignContent: "center" }}>
+                    <View style={Styles.flx1}>
                       <Text>At: {event.scheduled.slice(11, 19)}</Text>
                       <Text>Tournament: {event.tournament.name}</Text>
                       <Text>

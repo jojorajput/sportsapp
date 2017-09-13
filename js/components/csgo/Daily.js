@@ -14,6 +14,7 @@ import {
 } from "native-base";
 import csgo from "../../Services/csgo";
 import NavStore from "../../NavStore";
+import Styles from './Styles';
 
 class CSGOToday extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class CSGOToday extends React.Component {
     if (this.state.body === "") {
       return (
         <Content>
-          <View style={{ alignSelf: "center", marginTop: 200 }}>
+          <View style={Styles.dailyLoad}>
             <Text>Loading Today's Matches</Text>
             <Spinner color="blue" />
           </View>
@@ -43,7 +44,7 @@ class CSGOToday extends React.Component {
       );
     }else if (this.state.body.sport_events.length==0) {
       return <Content>
-          <View style={{ alignSelf: "center", marginTop: 200 }}>
+          <View style={Styles.dailyLoad}>
             <Text>No Matches Today</Text>
           </View>
         </Content>;
@@ -53,18 +54,18 @@ class CSGOToday extends React.Component {
           <List dataArray={this.state.body.sport_events} renderRow={event => <ListItem {...this.props} onPress={()=>{NavStore.setMatchId(event.id); this.props.navigation.navigate('CSGOMatchStats');}}>
                 <Card>
                   <CardItem>
-                    <View style={{ flex: 1 }}>
+                    <View style={Styles.dailyView}>
                       <Text> {event.competitors[0].name}</Text>
                     </View>
-                    <View style={{ flex: 1 }}>
+                    <View style={Styles.dailyView}>
                       <Text style={{ fontSize: 40 }}> Vs</Text>
                     </View>
-                    <View style={{ flex: 1 }}>
+                    <View style={Styles.dailyView}>
                       <Text> {event.competitors[1].name}</Text>
                     </View>
                   </CardItem>
                   <CardItem>
-                    <View style={{ flex: 1, alignContent: "center" }}>
+                    <View style={Styles.dailyView}>
                       <Text>At: {event.scheduled.slice(11, 19)}</Text>
                       <Text>Tournament: {event.tournament.name}</Text>
                       <Text>

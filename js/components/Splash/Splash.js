@@ -21,49 +21,38 @@ class Splash extends React.Component {
     }
     
     componentWillMount(){
-        try{
-            var auth = Db.getAuth();
-            hydrate("user", userStore)
-              .then(usr => {
-                var user= usr.user;
-                auth
-                  .signInWithEmailAndPassword(user.email.toString(), user.password.toString())
-                  .then(() => {
+        var auth = Db.getAuth();
+        hydrate("user", userStore)
+        .then(usr => {
+            var user= usr.user;
+            auth.onAuthStateChanged((user)=>{                    
+                if(user){
                     this.props.navigation.dispatch(NavigationActions.reset(
                         {
-                          index: 0,
-                          actions: [
-                            NavigationActions.navigate({
-                              routeName: "Home"
-                            })
-                          ]
+                            index: 0,
+                            actions: [
+                            NavigationActions.navigate(
+                                {
+                                routeName: "Home"
+                                }
+                            )
+                            ]
                         }
-                      ));
-                  })
-                  .catch(err => {
-                    alert(err);
-                  });
-              })
-              .catch(err => {
-                this.props.navigation.dispatch(NavigationActions.reset(
+                        ));
+                } else {
+                    this.props.navigation.dispatch(NavigationActions.reset(
                     {
-                      index: 0,
-                      actions: [
-                        NavigationActions.navigate({
-                          routeName: "Login"
-                        })
-                      ]
+                        index: 0,
+                        actions: [
+                        NavigationActions.navigate(
+                            { routeName: "Login" }
+                        )
+                        ]
                     }
-                  ));
-              });
-        } catch(err) {
-            //alert(err);     
-            this.props.navigation.dispatch(NavigationActions.reset({
-                index: 0,
-                actions: [
-                  NavigationActions.navigate({ routeName: "Login" })]
-              }));
-        }
+                    ));
+                }
+            });
+        });
     }
 
     render() {

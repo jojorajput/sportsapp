@@ -1,5 +1,7 @@
 import React from "react";
 import { Card, CardItem,Grid,List,ListItem,Row,Text, View} from "native-base";
+import Styles from './Styles';
+
 class Stats extends React.Component {
     constructor(props){
         super(props);
@@ -41,8 +43,8 @@ class Stats extends React.Component {
     }
   render() {
     return <Card>
-        <CardItem style={{ flex: 1, padding: 0 }}>
-          <View style={{ flex: 1, alignSelf: "flex-start" }}>
+        <CardItem style={Styles.flx1}>
+          <View style={Styles.flxStart}>
             <Text>
               Event status :{" "}
               {this.state.maps ? (
@@ -52,8 +54,8 @@ class Stats extends React.Component {
               )}
             </Text>
           </View>
-          <View style={{ flex: 1, alignSelf: "flex-start" }}>
-            <Text style={{ textAlign: "right" }}>
+          <View style={Styles.flxStart}>
+            <Text style={Styles.rightTx}>
               Rounds:{this.state.rounds ? (
                 this.props.stats.statistics.totals.rounds
               ) : (
@@ -65,25 +67,25 @@ class Stats extends React.Component {
         {this.state.maps ?( <CardItem style={{ padding: 0 }}>
             <Grid>
               <Row>
-                <View style={{ flex: 1, alignSelf: "flex-start" }}>
-                  <Text style={{ textAlign: "left", fontSize: 20, fontWeight: "bold" }}>
+                <View style={Styles.flxStart}>
+                  <Text style={Styles.leftTx20Bold}>
                     {this.props.stats.sport_event.competitors[0].name}
                   </Text>
                 </View>
-                <View style={{ flex: 1, alignSelf: "flex-end" }}>
-                  <Text style={{ textAlign: "right", fontSize: 20, fontWeight: "bold" }}>
+                <View style={Styles.flxEnd}>
+                  <Text style={Styles.rightTx20Bold}>
                     {this.props.stats.sport_event.competitors[1].name}
                   </Text>
                 </View>
               </Row>
               <Row>
-                <View style={{ flex: 1, alignSelf: "flex-start" }}>
-                  <Text style={{ textAlign: "left", fontSize: 20 }}>
+                <View style={Styles.flxStart}>
+                  <Text style={Styles.leftTx20}>
                     {this.props.stats.sport_event_status.home_score}
                   </Text>
                 </View>
-                <View style={{ flex: 1, alignSelf: "flex-end" }}>
-                  <Text style={{ textAlign: "right", fontSize: 20 }}>
+                <View style={Styles.flxEnd}>
+                  <Text style={Styles.rightTx20}>
                     {this.props.stats.sport_event_status.away_score}
                   </Text>
                 </View>
@@ -92,20 +94,20 @@ class Stats extends React.Component {
                 <List dataArray={this.props.stats.sport_event_status.period_scores} renderRow={score => <ListItem>
                       <Grid>
                         <Row>
-                          <View style={{ flex: 1, alignSelf: "center" }}>
-                            <Text style={{ textAlign: "center" }}>
+                          <View style={Styles.flxCenter}>
+                            <Text style={Styles.centerTx}>
                               Map: {score.number} Map Name: {score.map_name}{" "}
                             </Text>
                           </View>
                         </Row>
                         <Row>
-                          <View style={{ flex: 1, alignSelf: "flex-start" }}>
-                            <Text style={{ textAlign: "left" }}>
+                          <View style={Styles.flxStart}>
+                            <Text >
                               {score.home_score}
                             </Text>
                           </View>
-                          <View style={{ flex: 1, alignSelf: "flex-end" }}>
-                            <Text style={{ textAlign: "right" }}>
+                          <View style={Styles.flxEnd}>
+                            <Text style={Styles.rightTx}>
                               {score.away_score}
                             </Text>
                           </View>
@@ -117,7 +119,7 @@ class Stats extends React.Component {
           </CardItem> ): null}
         <CardItem>
           {this.state.players ?( <View>
-              <View style={{ flex: 1 }}>
+              <View style={Styles.flx1}>
                 <List dataArray={this.props.stats.statistics.teams[0].players} renderRow={player => <ListItem>
                       <Card>
                         <CardItem>
@@ -145,7 +147,7 @@ class Stats extends React.Component {
                       </Card>
                     </ListItem>} />
               </View>
-              <View style={{ flex: 1 }}>
+              <View style={Styles.flx1}>
                 <List dataArray={this.props.stats.statistics.teams[1].players} renderRow={player => <ListItem>
                       <Card>
                         <CardItem>

@@ -26,5 +26,9 @@ export default {
   logo: {
     marginTop: 50,
     alignSelf: "center"
+  },
+  ip: {
+    color: "#fff", 
+    textAlign: "center"
   }
 };

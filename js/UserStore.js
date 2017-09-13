@@ -7,20 +7,8 @@ class Store {
   user = {};
 
   setUser(usr) {
-    return new Promise((resolve, reject) => {
       this.user = usr;
-      resolve(this.user);
-      reject("Error !!!");
-    });
   }
-
-//   getUser() {
-//     return new Promise((resolve, reject) => {
-//       console.log(this.user);
-//       resolve(this.user);
-//       reject("Errrrr");
-//     });
-//   }
 }
 var UserStore = new Store;
 

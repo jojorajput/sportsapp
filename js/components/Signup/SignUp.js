@@ -37,38 +37,38 @@ class SignUp extends React.Component {
         <Image source={background} style={Styles.mainContainer}>
           <Content>
             <View style={Styles.logo}>
-              <H1 style={{ color: "#fff" }}> SportsBuzz</H1>
+              <H1 style={Styles.ip}> SportsBuzz</H1>
             </View>
             <View style={Styles.formContainer}>
               <Form>
                 <Item floatingLabel>
                   <Label>Username</Label>
-                  <Input style={{ color: "#fff", textAlign: "center" }} onChangeText={username => this.setState(
+                  <Input style={Styles.ip} onChangeText={username => this.setState(
                         { username }
                       )} />
                 </Item>
                 <Item floatingLabel>
                   <Label>Email</Label>
-                  <Input style={{ color: "#fff", textAlign: "center" }} onChangeText={Email => this.setState(
+                  <Input style={Styles.ip} onChangeText={Email => this.setState(
                         { Email }
                       )} />
                 </Item>
 
                 <Item floatingLabel>
                   <Label>Password</Label>
-                  <Input style={{ color: "#fff", textAlign: "center" }} secureTextEntry={true} onChangeText={Password => this.setState(
+                  <Input style={Styles.ip} secureTextEntry={true} onChangeText={Password => this.setState(
                         { Password }
                       )} />
                 </Item>
                 <Item floatingLabel>
                   <Label>Confirm Password</Label>
-                  <Input style={{ color: "#fff", textAlign: "center" }} secureTextEntry={true} onChangeText={cnfPass => this.setState(
+                  <Input style={Styles.ip} secureTextEntry={true} onChangeText={cnfPass => this.setState(
                         { cnfPass }
                       )} />
                 </Item>
               </Form>
               <Button style={Styles.but} block primary onPress={() => this.addUser()}>
-                <Text style={{ color: "#fff" }}>Sign Up</Text>
+                <Text style={Styles.ip}>Sign Up</Text>
               </Button>
             </View>
           </Content>

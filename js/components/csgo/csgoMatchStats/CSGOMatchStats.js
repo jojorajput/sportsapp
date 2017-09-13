@@ -50,7 +50,7 @@ class CSGOMatchStats extends React.Component{
                   </Right>
                 </Header>
                 <Content>
-                  <View style={{ alignSelf: "center", marginTop: 200 }}>
+                  <View style={Styles.load}>
                     <Text>
                       Loading Match Stats
                     </Text>
@@ -81,7 +81,7 @@ class CSGOMatchStats extends React.Component{
               <Content>
                 <Card>
                   <CardItem>
-                    <View style={{ flex: 1 }}>
+                    <View style={Styles.view}>
                       <Text>
                         {
                           this.state.body.sport_event.competitors[0]
@@ -97,17 +97,17 @@ class CSGOMatchStats extends React.Component{
                           ")"}
                       </Text>
                     </View>
-                    <View style={{ flex: 1 }}>
-                      <Text style={{textAlign:"center", fontSize: 40 }}> Vs</Text>
+                    <View style={Styles.view}>
+                      <Text style={Styles.vs}> Vs</Text>
                     </View>
-                    <View style={{ flex: 1 }}>
-                      <Text style={{ textAlign: "right" }}>
+                    <View style={Styles.view}>
+                      <Text style={ Styles.competitor2}>
                         {
                           this.state.body.sport_event.competitors[1]
                             .name
                         }
                       </Text>
-                      <Text style={{ textAlign: "right" }}>
+                      <Text style={ Styles.competitor2}>
                         {this.state.body.sport_event.competitors[1]
                           .country +
                           " (" +
@@ -118,7 +118,7 @@ class CSGOMatchStats extends React.Component{
                     </View>
                   </CardItem>
                   <CardItem>
-                    <View style={{ flex: 1, alignSelf: "flex-start" }}>
+                    <View style={Styles.date}>
                       <Text>
                         Date:{" "}
                         {this.state.body.sport_event.scheduled.slice(
@@ -127,8 +127,8 @@ class CSGOMatchStats extends React.Component{
                         )}
                       </Text>
                     </View>
-                    <View style={{ flex: 1, alignSelf: "flex-end" }}>
-                      <Text style={{ textAlign: "right" }}>
+                    <View style={Styles.time}>
+                      <Text style={Styles.timeTx}>
                         Time:{" "}
                         {this.state.body.sport_event.scheduled.slice(
                           11,

@@ -17,6 +17,7 @@ import {
 } from "native-base";
 import NavStore from '../../NavStore';
 import Db from "../../Db";
+import Styles from './Styles';
 
 var csgo;
 var feed;
@@ -81,7 +82,7 @@ class CSGOTalk extends React.Component {
   }
   else {
   return <Content>
-    <View style={{ alignSelf: "center", marginTop: 200 }}>
+    <View style={Styles.dailyLoad}>
       <Text>Loading Discussions</Text>
       <Spinner color="blue" />
     </View>

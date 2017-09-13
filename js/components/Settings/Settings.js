@@ -19,14 +19,13 @@ class Settings extends React.Component {
         auth=Db.getAuth();
     }
     logout(){
-            //AsyncStorage.removeItem('@user')
             userStore.setUser({})
-            .then(()=>{NavStore.userName=''; auth.signOut(); 
+            NavStore.userName='';
+            auth.signOut(); 
             this.props.navigation.dispatch(NavigationActions.reset({
                 index: 0,
                 actions: [NavigationActions.navigate({ routeName: "Login" })]
               }));
-            });
     }
 
 render(){

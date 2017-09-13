@@ -87,7 +87,7 @@ class LOLThread extends React.Component{
                   </Right>
                 </Header>
                 <Content>
-                  <View style={{ alignSelf: "center", marginTop: 200 }}>
+                  <View style={Styles.load}>
                     <Text>
                       Loading Discussion
                     </Text>
@@ -118,7 +118,7 @@ class LOLThread extends React.Component{
                   </Right>
                 </Header>
                 <Content>
-                  <Item rounded style={{marginTop: 5}}>
+                  <Item rounded style={Styles.item}>
                     <Input placeholder="Type Your Comment Here" onChangeText={cmnt => {
                         this.setState({ cmnt: cmnt });
                       }} />
@@ -131,7 +131,7 @@ class LOLThread extends React.Component{
                   <List dataArray={this.state.feeds} renderRow={feed => <ListItem>
                         <Card>
                           <CardItem>
-                            <Text style={{ fontWeight: "bold" }}>
+                            <Text style={Styles.bold}>
                               {feed.By}
                             </Text>
                             <Text> {feed.Comment} </Text>
