@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, AsyncStorage, BackHandler } from "react-native"; // eslint-disable-line no-unused-vars
 import {Container, H1, Spinner} from 'native-base'; // eslint-disable-line no-unused-vars
-const background = require("../../assets/login.jpeg");
+const background = require("../../assets/bck.jpg");
 import Styles from './Styles';
 import Db from '../../Db';
 import {NavigationActions} from 'react-navigation';

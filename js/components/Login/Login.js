@@ -10,7 +10,7 @@ import {create} from 'mobx-persist';
 import Styles from "./Styles";
 import UserStore from '../../UserStore';
 
-const background = require("../../assets/login.jpeg");
+const background = require("../../assets/bck.jpg");
 var auth;
 const hydrate = create({storage: AsyncStorage});
 const userStore = UserStore;
@@ -52,10 +52,6 @@ store(){
           this.state.email,
           this.state.password
         ).then(() =>{
-          if(NavStore.userName != "")
-            {
-              auth.currentUser.updateProfile({displayName: NavStore.userName});
-            }
           this.store();
        })
         .catch(error => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import * as firebase from "firebase";
 
 var config = {
@@ -26,6 +25,9 @@ export default{
 
     getAuth(){
         return firebase.auth();
+    },
+    getStorage(){
+        return firebase.storage();
     }
 }
 

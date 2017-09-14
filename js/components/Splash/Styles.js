@@ -17,6 +17,7 @@ export default {
     marginTop: deviceHeight / 3
   },
   logo: {
+    fontWeight: 'bold',
     alignSelf: "center",
     color: "#fff",
     fontSize: 30

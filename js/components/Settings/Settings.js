@@ -6,7 +6,6 @@ import Db from '../../Db';
 import {NavigationActions} from 'react-navigation';
 import NavStore from '../../NavStore';
 
-import {observer} from 'mobx-react';
 import {create } from 'mobx-persist';
 import UserStore from '../../UserStore';
 
@@ -19,13 +18,12 @@ class Settings extends React.Component {
         auth=Db.getAuth();
     }
     logout(){
-            userStore.setUser({})
-            NavStore.userName='';
-            auth.signOut(); 
-            this.props.navigation.dispatch(NavigationActions.reset({
-                index: 0,
-                actions: [NavigationActions.navigate({ routeName: "Login" })]
-              }));
+      userStore.setUser({})
+      auth.signOut(); 
+      this.props.navigation.dispatch(NavigationActions.reset({
+        index: 0,
+        actions: [NavigationActions.navigate({ routeName: "Login" })]
+      }));
     }
 
 render(){
@@ -39,6 +37,11 @@ render(){
           <Body>
             <Title>Settings</Title>
           </Body>
+          <Right>
+            <Button transparent onPress={()=> this.props.navigation.navigate('Profile')}>
+              <Icon name='person' />
+            </Button>
+          </Right>
         </Header>
         <Content padder>
           <View style={Styles.logo}>

@@ -9,6 +9,7 @@ import SignUp from './components/Signup/SignUp';
 import Head from './components/Head/Head';
 import Splash from './components/Splash/Splash';
 import Settings from './components/Settings/Settings';
+import Profile from './components/Profile/Profile';
 import CSGOMatchStats from './components/csgo/csgoMatchStats/CSGOMatchStats';
 import CSGOTourSchedule from './components/csgo/csgoTourSchedule/CSGOTourSchedule';
 import DOTAMatchStats from './components/dota/dotaMatchStats/DOTAMatchStats';
@@ -25,6 +26,7 @@ const AppNavigator = StackNavigator({
     Login: {screen: Login},
     Home: {screen: Home},
     Settings: {screen: Settings},
+    Profile: {screen: Profile},
     SignUp: {screen: SignUp},
     CSGOMatchStats: {screen: CSGOMatchStats},
     CSGOTourSchedule: {screen: CSGOTourSchedule},

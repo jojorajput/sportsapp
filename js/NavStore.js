@@ -1,11 +1,10 @@
 import {observable} from 'mobx';
 
 class Store {
-  @observable topNav = 0;
+  @observable topNav = 1;
   @observable bottonNav = 0;
   matchId = "";
   tourId = "";
-  userName="";
   threadId="";
 
   setTopNav(top) {
