@@ -1,8 +1,8 @@
 import {observable} from 'mobx';
-
+import navList from './NavList';
 class Store {
-  @observable topNav = 1;
-  @observable bottonNav = 0;
+  @observable topNav = navList.topNav.CSGO;
+  @observable bottonNav = navList.bottomNav.TODAY;
   matchId = "";
   tourId = "";
   threadId="";

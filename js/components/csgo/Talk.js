@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Button,
+  Content,
   Icon,
   Input,
   Item,
@@ -15,7 +16,6 @@ import Db from "../../Db";
 import Styles from './Styles';
 
 var csgo;
-var feed;
 class CSGOTalk extends React.Component {
   constructor(props) {
     super(props);
@@ -46,7 +46,7 @@ class CSGOTalk extends React.Component {
       Title: this.state.title,
       By: Db.getAuth().currentUser.displayName
     });
-    feed=Db.getDatabase().ref('Talks/csgo/'+newThread.key+'/Feeds');
+    var feed=Db.getDatabase().ref('Talks/csgo/'+newThread.key+'/Feeds');
     var newFeed= feed.push();
     newFeed.set({
       By: Db.getAuth().currentUser.displayName,
