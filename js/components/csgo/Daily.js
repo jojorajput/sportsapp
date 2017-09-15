@@ -3,11 +3,8 @@ import {
   Card,
   CardItem,
   Content,
-  Icon,
   List,
   ListItem,
-  Right,
-  Separator,
   Spinner,
   Text,
   View,
@@ -25,11 +22,12 @@ class CSGOToday extends React.Component {
   }
   componentWillMount() {
     csgo.getToday().then(res => {
-        this.setState({ body: res });
+      this.setState({ body: res });
       }, err => {
         console.log(err);
         console.log(err.status);
-      });
+      }
+    );
   }
 
   render() {
@@ -44,39 +42,37 @@ class CSGOToday extends React.Component {
       );
     }else if (this.state.body.sport_events.length==0) {
       return <Content>
-          <View style={Styles.dailyLoad}>
-            <Text>No Matches Today</Text>
-          </View>
-        </Content>;
+        <View style={Styles.dailyLoad}>
+          <Text>No Matches Today</Text>
+        </View>
+      </Content>;
     } 
     else {
       return <Content>
-          <List dataArray={this.state.body.sport_events} renderRow={event => <ListItem {...this.props} onPress={()=>{NavStore.setMatchId(event.id); this.props.navigation.navigate('CSGOMatchStats');}}>
-                <Card>
-                  <CardItem>
-                    <View style={Styles.dailyView}>
-                      <Text> {event.competitors[0].name}</Text>
-                    </View>
-                    <View style={Styles.dailyView}>
-                      <Text style={{ fontSize: 40 }}> Vs</Text>
-                    </View>
-                    <View style={Styles.dailyView}>
-                      <Text> {event.competitors[1].name}</Text>
-                    </View>
-                  </CardItem>
-                  <CardItem>
-                    <View style={Styles.dailyView}>
-                      <Text>At: {event.scheduled.slice(11, 19)}</Text>
-                      <Text>Tournament: {event.tournament.name}</Text>
-                      <Text>
-                        Category: {event.tournament.category.name}
-                      </Text>
-                      <Text>Event {event.status}</Text>
-                    </View>
-                  </CardItem>
-                </Card>
-              </ListItem>} />
-        </Content>;
+        <List dataArray={this.state.body.sport_events} renderRow={event => <ListItem {...this.props} onPress={()=>{NavStore.setMatchId(event.id); this.props.navigation.navigate('CSGOMatchStats');}}>
+          <Card>
+            <CardItem>
+              <View style={Styles.dailyView}>
+                <Text> {event.competitors[0].name}</Text>
+              </View>
+              <View style={Styles.dailyView}>
+                <Text style={{ fontSize: 40 }}> Vs</Text>
+              </View>
+              <View style={Styles.dailyView}>
+                <Text> {event.competitors[1].name}</Text>
+              </View>
+            </CardItem>
+            <CardItem>
+              <View style={Styles.dailyView}>
+                <Text>At: {event.scheduled.slice(11, 19)}</Text>
+                <Text>Tournament: {event.tournament.name}</Text>
+                <Text> Category: {event.tournament.category.name} </Text>
+                <Text>Event {event.status}</Text>
+              </View>
+            </CardItem>
+          </Card>
+        </ListItem>} />
+      </Content>;
     }
   }
 }

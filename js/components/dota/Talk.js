@@ -1,11 +1,6 @@
 import React from "react";
 import {
   Button,
-  Card,
-  CardItem,
-  Container,
-  Content,
-  Fab,
   Icon,
   Input,
   Item,
@@ -34,7 +29,6 @@ class DOTATalk extends React.Component {
   componentDidMount() {
     dota.on("value", snapshot => {
       var threads = [];
-      //console.log(snapshot);
       snapshot.forEach(thread => {
         threads.push({
           Title: thread.val().Title,

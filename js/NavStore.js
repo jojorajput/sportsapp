@@ -27,6 +27,6 @@ class Store {
     this.threadId=id;
   }
 }
- var NavStore = new Store;
+var NavStore = new Store;
 
 export default  NavStore;

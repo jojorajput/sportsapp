@@ -1,15 +1,13 @@
 import React from 'react';
-import { View, Text, Image, AsyncStorage, BackHandler } from "react-native"; // eslint-disable-line no-unused-vars
-import {Container, H1, Spinner} from 'native-base'; // eslint-disable-line no-unused-vars
+import { View, Image, AsyncStorage } from "react-native"; 
+import {Container, H1, Spinner} from 'native-base'; 
 const background = require("../../assets/bck.jpg");
 import Styles from './Styles';
 import Db from '../../Db';
 import {NavigationActions} from 'react-navigation';
-import {observer} from 'mobx-react';
 import {create} from 'mobx-persist';
 import UserStore from '../../UserStore';
 
-var value;
 const hydrate = create({storage: AsyncStorage});
 const userStore = UserStore;
 
@@ -24,7 +22,6 @@ class Splash extends React.Component {
         var auth = Db.getAuth();
         hydrate("user", userStore)
         .then(usr => {
-            var user= usr.user;
             auth.onAuthStateChanged((user)=>{                    
                 if(user){
                     this.props.navigation.dispatch(NavigationActions.reset(
@@ -33,23 +30,21 @@ class Splash extends React.Component {
                             actions: [
                             NavigationActions.navigate(
                                 {
-                                routeName: "Home"
+                                    routeName: "Home"
                                 }
                             )
                             ]
                         }
-                        ));
+                    ));
                 } else {
-                    this.props.navigation.dispatch(NavigationActions.reset(
-                    {
+                    this.props.navigation.dispatch(NavigationActions.reset({
                         index: 0,
                         actions: [
                         NavigationActions.navigate(
                             { routeName: "Login" }
                         )
                         ]
-                    }
-                    ));
+                    }));
                 }
             });
         });
@@ -63,7 +58,7 @@ class Splash extends React.Component {
                 <Spinner color='white' />
               </View>
             </Image>
-          </Container>;
+        </Container>;
     }
 
 }

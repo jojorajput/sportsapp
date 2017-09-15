@@ -25,11 +25,11 @@ class DOTAToday extends React.Component {
   }
   componentWillMount() {
     dota.getToday().then(res => {
-        this.setState({ body: res });
-      }, err => {
-        console.log(err);
-        console.log(err.status);
-      });
+      this.setState({ body: res });
+    }, err => {
+      console.log(err);
+      console.log(err.status);
+    });
   }
 
   render() {
@@ -50,37 +50,37 @@ class DOTAToday extends React.Component {
         </Content>;
     } else {
         return <Content>
-            <List dataArray={this.state.body.sport_events} renderRow={event => <ListItem {...this.props} onPress={()=>{NavStore.setMatchId(event.id); this.props.navigation.navigate('DOTAMatchStats');}} >
-                  <Card {...this.props} id={event.id}>
-                    <CardItem>
-                      <View style={Styles.flx1}>
-                        <Text> {event.competitors[0].name}</Text>
-                      </View>
-                      <View style={Styles.flx1}>
-                        <Text style={{ fontSize: 40 }}> Vs</Text>
-                      </View>
-                      <View style={Styles.flx1}>
-                        <Text> {event.competitors[1].name}</Text>
-                      </View>
-                    </CardItem>
-                    <CardItem>
-                      <View style={Styles.flx1}>
-                        <Text>
-                          At: {event.scheduled.slice(11, 19)}
-                        </Text>
-                        <Text>
-                          Tournament: {event.tournament.name}
-                        </Text>
-                        <Text>
-                          Category:{" "}
-                          {event.tournament.category.name}
-                        </Text>
-                        <Text>Event: {event.status}</Text>
-                      </View>
-                    </CardItem>
-                  </Card>
-                </ListItem>} />
-          </Content>;
+          <List dataArray={this.state.body.sport_events} renderRow={event => <ListItem {...this.props} onPress={()=>{NavStore.setMatchId(event.id); this.props.navigation.navigate('DOTAMatchStats');}} >
+            <Card {...this.props} id={event.id}>
+              <CardItem>
+                <View style={Styles.flx1}>
+                  <Text> {event.competitors[0].name}</Text>
+                </View>
+                <View style={Styles.flx1}>
+                  <Text style={{ fontSize: 40 }}> Vs</Text>
+                </View>
+                <View style={Styles.flx1}>
+                  <Text> {event.competitors[1].name}</Text>
+                </View>
+              </CardItem>
+              <CardItem>
+                <View style={Styles.flx1}>
+                  <Text>
+                    At: {event.scheduled.slice(11, 19)}
+                  </Text>
+                  <Text>
+                    Tournament: {event.tournament.name}
+                  </Text>
+                  <Text>
+                    Category:{" "}
+                    {event.tournament.category.name}
+                  </Text>
+                  <Text>Event: {event.status}</Text>
+                </View>
+              </CardItem>
+            </Card>
+          </ListItem>} />
+        </Content>;
       }
   }
 }

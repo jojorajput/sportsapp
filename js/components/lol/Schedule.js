@@ -1,14 +1,8 @@
 import React from "react";
-import { Modal } from "react-native";
 import {
-  Card,
-  CardItem,
   Content,
-  Icon,
   List,
   ListItem,
-  Right,
-  Separator,
   Spinner,
   Text,
   View
@@ -26,10 +20,10 @@ class LOLSchedule extends React.Component {
   }
   componentWillMount() {
     schedule.getTournaments().then(res => {
-        this.setState({ tournaments: res });
-      }, err => {
-        console.log(err);
-      });
+      this.setState({ tournaments: res });
+    }, err => {
+      console.log(err);
+    });
   }
 
   render() {
@@ -45,11 +39,11 @@ class LOLSchedule extends React.Component {
     } else {
       return <Content>
           <List dataArray={this.state.tournaments} renderRow={tournament => <ListItem onPress={() => {
-                  NavStore.setTourId(tournament.id);
-                  this.props.navigation.navigate("LOLTourSchedule");
-                }}>
-                <Text>{tournament.name}</Text>
-              </ListItem>} />
+              NavStore.setTourId(tournament.id);
+              this.props.navigation.navigate("LOLTourSchedule");
+            }}>
+            <Text>{tournament.name}</Text>
+          </ListItem>} />
         </Content>;
     }
   }

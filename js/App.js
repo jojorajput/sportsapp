@@ -1,12 +1,8 @@
-import React from "react";
-
-import { Platform } from "react-native";
 import { Root } from "native-base";
 import { StackNavigator } from "react-navigation";
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import SignUp from './components/Signup/SignUp';
-import Head from './components/Head/Head';
 import Splash from './components/Splash/Splash';
 import Settings from './components/Settings/Settings';
 import Profile from './components/Profile/Profile';
@@ -44,7 +40,6 @@ const AppNavigator = StackNavigator({
     headerMode: "none"
 }
 );
-
 export default () => (
   <Root>
     <AppNavigator />

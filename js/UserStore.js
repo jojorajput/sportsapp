@@ -5,7 +5,6 @@ class Store {
   @persist("object")
   @observable
   user = {};
-
   setUser(usr) {
       this.user = usr;
   }

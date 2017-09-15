@@ -1,14 +1,8 @@
 import React from "react";
-import { Modal } from "react-native";
 import {
-  Card,
-  CardItem,
   Content,
-  Icon,
   List,
   ListItem,
-  Right,
-  Separator,
   Spinner,
   Text,
   View
@@ -26,10 +20,10 @@ class DOTASchedule extends React.Component {
   }
   componentWillMount() {
     schedule.getTournaments().then(res => {
-        this.setState({ tournaments: res });
-      }, err => {
-        console.log(err);
-      });
+      this.setState({ tournaments: res });
+    }, err => {
+      console.log(err);
+    });
   }
 
   render() {

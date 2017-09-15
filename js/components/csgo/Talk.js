@@ -1,11 +1,6 @@
 import React from "react";
 import {
   Button,
-  Card,
-  CardItem,
-  Container,
-  Content,
-  Fab,
   Icon,
   Input,
   Item,
@@ -34,7 +29,6 @@ class CSGOTalk extends React.Component {
   componentDidMount() {
     csgo.on("value", snapshot => {
       var threads = [];
-      //console.log(snapshot);
       snapshot.forEach(thread => {
         threads.push({
           Title: thread.val().Title,
@@ -65,20 +59,20 @@ class CSGOTalk extends React.Component {
   render() {
     if(this.state.threads.length != 0){
     return <Content>
-        <Item rounded>
-          <Input placeholder="Start New Thread Here: Title " onChangeText={title => {
-              this.setState({ title: title });
-            }} />
-          <Button transparent onPress={() => {
-              this.createThread();
-            }}>
-            <Icon name="paper-plane" />
-          </Button>
-        </Item>
-        <List dataArray={this.state.threads} renderRow={thread => <ListItem onPress={()=>{NavStore.setThreadId(thread.key); this.props.navigation.navigate('CSGOThread');}}  >
-              <Text> {thread.Title} </Text>
-            </ListItem>} />
-      </Content>;
+      <Item rounded>
+        <Input placeholder="Start New Thread Here: Title " onChangeText={title => {
+            this.setState({ title: title });
+          }} />
+        <Button transparent onPress={() => {
+            this.createThread();
+          }}>
+          <Icon name="paper-plane" />
+        </Button>
+      </Item>
+      <List dataArray={this.state.threads} renderRow={thread => <ListItem onPress={()=>{NavStore.setThreadId(thread.key); this.props.navigation.navigate('CSGOThread');}}  >
+        <Text> {thread.Title} </Text>
+      </ListItem>} />
+    </Content>;
   }
   else {
   return <Content>

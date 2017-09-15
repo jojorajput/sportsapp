@@ -3,7 +3,6 @@ import {Image } from 'react-native';
 import {Body, Button, Container, Content, Header,H1 ,Icon, Left,Text,Spinner, Title, View} from 'native-base';
 import Db from '../../Db';
 import Styles from './Styles';
-//import RNFetchBlob from "react-native-fetch-blob";
 const {ImagePicker} = Expo;
 var auth;
 var storage;
@@ -22,12 +21,11 @@ class Profile extends React.Component{
     componentDidMount(){
         this.setState({userName: auth.currentUser.displayName});
         if(auth.currentUser.photoURL!=null){
-            // console.log(auth.currentUser.photoURL, 'not null');
             this.setState({ photoURL: auth.currentUser.photoURL });
-    } else {
-        this.setState({photoURL: "https://firebasestorage.googleapis.com/v0/b/sportsbuzz-19fd4.appspot.com/o/images%2FnoImg.jpg?alt=media&token=088f3f11-4f39-42da-94cf-7db7ed8dca19"})
+        } else {
+            this.setState({photoURL: "https://firebasestorage.googleapis.com/v0/b/sportsbuzz-19fd4.appspot.com/o/images%2FnoImg.jpg?alt=media&token=088f3f11-4f39-42da-94cf-7db7ed8dca19"})
+        }
     }
-}
 
     updateImage(){
         ImagePicker.launchImageLibraryAsync({base64: true}).then((image)=>{
@@ -40,7 +38,6 @@ class Profile extends React.Component{
                 })
             })
         });
-
     }
 
     render(){
@@ -76,11 +73,11 @@ class Profile extends React.Component{
                   </Text>
                 </View>
               </View>
-              <View>
+              <View style={Styles.usrName} >
                   <Button onPress={()=>{auth.sendPasswordResetEmail(auth.currentUser.email); alert('a password reset mail is sent to your email address') }}><Text>Reset Password</Text></Button>
               </View>
             </Content>
-          </Container>;
+        </Container>;
     }
 
 }

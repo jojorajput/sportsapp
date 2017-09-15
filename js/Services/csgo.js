@@ -1,13 +1,11 @@
-import React from 'react';
 import superAgent from 'superagent';
 const config={
-               api_key: "wqgy9r9d7jbsrh9u23mrnxrg"
-             }
-//var res;
+  api_key: "wqgy9r9d7jbsrh9u23mrnxrg"
+}
 export default {
   getTournaments(){ 
     return new Promise((resolve, reject)=>{
-    const tournamentUrl = "http://api.sportradar.us/csgo-t1/en/tournaments.json?api_key=" + config.api_key;
+      const tournamentUrl = "http://api.sportradar.us/csgo-t1/en/tournaments.json?api_key=" + config.api_key;
       superAgent
       .get(tournamentUrl)
       .then((response) => {
@@ -18,8 +16,8 @@ export default {
       });
     })
   },
-    getToday(){
-      return new Promise((resolve, reject)=> {
+  getToday(){
+    return new Promise((resolve, reject)=> {
       var date= new Date();
       var day= date.getFullYear()+"-0"+(date.getMonth()+1)+"-"+date.getDate();
       var url= "http://api.sportradar.us/csgo-t1/en/schedules/"+ day +"/schedule.json?api_key="+config.api_key;
@@ -28,9 +26,9 @@ export default {
       .then((response)=>{
         resolve(response.body);
       }, 
-        (err)=>{
+      (err)=>{
         reject(err);
-        });
+      });
     })
   },
   getMatch(id){
@@ -41,9 +39,9 @@ export default {
       .then((response)=>{
         resolve(response.body);
       },
-        (err)=>{
-          reject(err);
-        });
+      (err)=>{
+        reject(err);
+      });
     })
   },
   getTourSchedule(id){
@@ -54,9 +52,9 @@ export default {
       .then((response)=>{
         resolve(response.body);
       },
-        (err)=>{
-          reject(err);
-        });
+      (err)=>{
+        reject(err);
+      });
     })
   }   
 }
