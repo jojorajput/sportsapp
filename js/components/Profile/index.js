@@ -19,11 +19,10 @@ class Profile extends React.Component{
     }
 
     componentDidMount(){
-        this.setState({userName: auth.currentUser.displayName});
         if(auth.currentUser.photoURL!=null){
-            this.setState({ photoURL: auth.currentUser.photoURL });
+            this.setState({userName: auth.currentUser.displayName, photoURL: auth.currentUser.photoURL });
         } else {
-            this.setState({photoURL: "https://firebasestorage.googleapis.com/v0/b/sportsbuzz-19fd4.appspot.com/o/images%2FnoImg.jpg?alt=media&token=088f3f11-4f39-42da-94cf-7db7ed8dca19"})
+            this.setState({userName: auth.currentUser.displayName, photoURL: "https://firebasestorage.googleapis.com/v0/b/sportsbuzz-19fd4.appspot.com/o/images%2FnoImg.jpg?alt=media&token=088f3f11-4f39-42da-94cf-7db7ed8dca19"})
         }
     }
 
