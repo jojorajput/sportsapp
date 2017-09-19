@@ -5,9 +5,12 @@ import { NavigationActions } from "react-navigation";
 
 import Db from '../../Db';
 import Styles from "./Styles";
-
+import I18n from 'ex-react-native-i18n';
+import NavStore from'../../NavStore';
+Locales=require('../../Locale');
 const background = require("../../assets/login.jpeg");
 var auth;
+I18n.fallback=true;
 
 class SignUp extends React.Component {
   constructor(props){
@@ -44,6 +47,7 @@ class SignUp extends React.Component {
     }
   }
   render() {
+    I18n.locale = NavStore.locale;
     return <Container>
       <Image source={background} style={Styles.mainContainer}>
         <Content>
@@ -53,7 +57,7 @@ class SignUp extends React.Component {
           <View style={Styles.formContainer}>
             <Form>
               <Item floatingLabel>
-                <Label>Username</Label>
+                <Label>{I18n.t('usrnm')}</Label>
                 <Input style={Styles.ip} onChangeText={username => this.setState( { username } )} />
               </Item>
               <Item floatingLabel>
@@ -61,16 +65,16 @@ class SignUp extends React.Component {
                 <Input style={Styles.ip} onChangeText={Email => this.setState( { Email } )} />
               </Item>
               <Item floatingLabel>
-                <Label>Password</Label>
+                <Label>{I18n.t('psswrd')}</Label>
                 <Input style={Styles.ip} secureTextEntry={true} onChangeText={Password => this.setState( { Password } )} />
               </Item>
               <Item floatingLabel>
-                <Label>Confirm Password</Label>
+                <Label>{I18n.t('cnfrmPsswrd')}</Label>
                 <Input style={Styles.ip} secureTextEntry={true} onChangeText={cnfPass => this.setState( { cnfPass } )} />
               </Item>
             </Form>
             <Button style={Styles.but} block primary onPress={() => this.addUser()}>
-              <Text style={Styles.ip}>Sign Up</Text>
+              <Text style={Styles.ip}>{I18n.t('signUp')}</Text>
             </Button>
           </View>
         </Content>
