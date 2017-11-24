@@ -9,9 +9,12 @@ import React from "react";import {
   View,
 } from "native-base";
 import lol from "../../Services/lol";
+import {observer} from 'mobx-react';
 import NavStore from "../../NavStore";
 import Styles from './Styles';
 
+
+@observer
 class LOLToday extends React.Component {
   constructor(props) {
     super(props);

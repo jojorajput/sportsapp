@@ -1,8 +1,10 @@
 import {observable} from 'mobx';
 import navList from './NavList';
+import I18n from 'ex-react-native-i18n';
 class Store {
-  @observable topNav = navList.topNav.CSGO;
+  @observable topNav = navList.topNav.DOTA;
   @observable bottonNav = navList.bottomNav.TODAY;
+  @observable locale = I18n.currentLocale();
   matchId = "";
   tourId = "";
   threadId="";
@@ -25,6 +27,9 @@ class Store {
 
   setThreadId(id){
     this.threadId=id;
+  }
+  setLocale(loc){
+    this.locale=loc;
   }
 }
 var NavStore = new Store;

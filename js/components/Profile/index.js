@@ -3,6 +3,7 @@ import {Image } from 'react-native';
 import {Body, Button, Container, Content, Header,H1 ,Icon, Left,Text,Spinner, Title, View} from 'native-base';
 import Db from '../../Db';
 import Styles from './Styles';
+import I18n from 'ex-react-native-i18n';
 const {ImagePicker} = Expo;
 var auth;
 var storage;
@@ -48,7 +49,7 @@ class Profile extends React.Component{
                 </Button>
               </Left>
               <Body>
-                <Title>Profile</Title>
+                <Title>{I18n.t('profile')}</Title>
               </Body>
             </Header>
             <Content padder>
@@ -58,7 +59,7 @@ class Profile extends React.Component{
               <View>
                 {this.state.photoURL === "" ? <View style={Styles.img}>
                     <Spinner color="blue" />
-                    <Text> Loading Image</Text>
+                    <Text> {I18n.t('loadingImage')}</Text>
                   </View> : <Image source={{ uri: this.state.photoURL }} style={Styles.img}>
                     <Button dark style={Styles.but} onPress={() => this.updateImage()}>
                       <Icon name="attach" />

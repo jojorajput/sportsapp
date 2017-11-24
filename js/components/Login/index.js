@@ -7,12 +7,26 @@ import {NavigationActions} from 'react-navigation';
 import {observer} from 'mobx-react';
 import {create} from 'mobx-persist';
 import Styles from "./Styles";
+import NavStore from '../../NavStore';
 import UserStore from '../../UserStore';
+import I18n from 'ex-react-native-i18n';
 
-const background = require("../../assets/bck.jpg");
+const background = require("../../assets/login.jpeg");
 var auth;
 const hydrate = create({storage: AsyncStorage});
 const userStore = UserStore;
+
+I18n.fallbacks=true;
+I18n.translations={
+  en:{
+    password: 'Password',
+    crAccnt:'Create Account'
+  },
+  du:{
+    password: 'Wachtwoord',
+    crAccnt: 'Account Aanmaken'
+  }
+}
 
 @observer
 class Login extends React.Component {
@@ -57,6 +71,7 @@ store(){
   }
 
   render() {
+    I18n.locale = NavStore.locale;
     return <Container>
       <Image source={background} style={Styles.mainContainer}>
         <Content>
@@ -70,7 +85,7 @@ store(){
                 <Input style={Styles.ip} onChangeText={email => this.setState( { email } )} />
               </Item>
               <Item floatingLabel>
-                <Label>Password</Label>
+                <Label>{I18n.t('psswrd')}</Label>
                 <Input style={Styles.ip} secureTextEntry={true} onChangeText={password => this.setState( { password } )} />
               </Item>
             </Form>
@@ -78,7 +93,7 @@ store(){
               <Text style={Styles.ip}>Login</Text>
             </Button>
             <Button transparent style={{ alignSelf: "center", marginTop: 30 }} onPress={() => this.props.navigation.navigate("SignUp")}>
-              <Text style={Styles.ip}>Create Account</Text>
+              <Text style={Styles.ip}>{I18n.t('crAccnt')}</Text>
             </Button>
           </View>
         </Content>

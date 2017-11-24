@@ -13,9 +13,12 @@ import {
   View,
 } from "native-base";
 import dota from "../../Services/dota";
+import {observer} from 'mobx-react';
 import NavStore from "../../NavStore";
 import Styles from './Styles';
+import I18n from 'ex-react-native-i18n';
 
+@observer
 class DOTAToday extends React.Component {
   constructor(props) {
     super(props);
@@ -33,11 +36,12 @@ class DOTAToday extends React.Component {
   }
 
   render() {
+    I18n.locale=NavStore.locale
     if (this.state.body === "") {
       return (
         <Content>
           <View style={Styles.load}>
-            <Text>Loading Today's Matches</Text>
+            <Text>{I18n.t('loadingToday')}</Text>
             <Spinner color="blue" />
           </View>
         </Content>
@@ -45,7 +49,7 @@ class DOTAToday extends React.Component {
     }else if (this.state.body.sport_events.length==0) {
       return <Content>
           <View style={Styles.load}>
-            <Text>No Matches Today</Text>
+            <Text>{I18n.t('noMatch')}</Text>
           </View>
         </Content>;
     } else {

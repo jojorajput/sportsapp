@@ -21,7 +21,10 @@ export default {
       marginTop: deviceHeight/3,
       padding: 20
   },
-but:{
+  but:{
       alignSelf:"center",      
-  }
+  },
+  lang:{
+    flex:1
+  },
 };

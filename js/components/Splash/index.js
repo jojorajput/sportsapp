@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Image, AsyncStorage } from "react-native"; 
 import {Container, H1, Spinner} from 'native-base'; 
-const background = require("../../assets/bck.jpg");
+const background = require("../../assets/login.jpeg");
 import Styles from './Styles';
 import Db from '../../Db';
 import {NavigationActions} from 'react-navigation';

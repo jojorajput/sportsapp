@@ -12,7 +12,10 @@ import {
 import csgo from "../../Services/csgo";
 import NavStore from "../../NavStore";
 import Styles from './Styles';
+import {observer} from 'mobx-react';
+import I18n from 'ex-react-native-i18n';
 
+@observer
 class CSGOToday extends React.Component {
   constructor(props) {
     super(props);
@@ -31,11 +34,12 @@ class CSGOToday extends React.Component {
   }
 
   render() {
+    I18n.locale=NavStore.locale;
     if (this.state.body === "") {
       return (
         <Content>
           <View style={Styles.dailyLoad}>
-            <Text>Loading Today's Matches</Text>
+            <Text>{I18n.t('loadingToday')}</Text>
             <Spinner color="blue" />
           </View>
         </Content>
@@ -43,7 +47,7 @@ class CSGOToday extends React.Component {
     }else if (this.state.body.sport_events.length==0) {
       return <Content>
         <View style={Styles.dailyLoad}>
-          <Text>No Matches Today</Text>
+          <Text>{I18n.t('noMatch')}</Text>
         </View>
       </Content>;
     } 

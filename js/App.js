@@ -16,7 +16,8 @@ import LOLTourSchedule from "./components/lol/lolTourSchedule";
 import CSGOThread from './components/csgo/csgoTalk';
 import DOTAThread from './components/dota/dotaTalk';
 import LOLThread from './components/lol/lolTalk';
-console.ignoredYellowBox = ["Setting a timer"];
+console.ignoredYellowBox = ["Setting a timer", "Warning: Can only update"];
+//console.ignoredYellowBox = ["Warning: Can only update"];
 
 const AppNavigator = StackNavigator({
     Splash: {screen: Splash},
