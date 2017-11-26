@@ -1,15 +1,8 @@
 import React from "react";
-import {
-  Content,
-  List,
-  ListItem,
-  Spinner,
-  Text,
-  View
-} from "native-base";
+import { Content, List, ListItem, Spinner, Text, View } from "native-base";
 import schedule from "../../Services/dota";
-import NavStore from '../../NavStore';
-import Styles from './Styles';
+import NavStore from "../../NavStore";
+import Styles from "./styles";
 
 class DOTASchedule extends React.Component {
   constructor(props) {
@@ -19,11 +12,14 @@ class DOTASchedule extends React.Component {
     };
   }
   componentWillMount() {
-    schedule.getTournaments().then(res => {
-      this.setState({ tournaments: res });
-    }, err => {
-      console.log(err);
-    });
+    schedule.getTournaments().then(
+      res => {
+        this.setState({ tournaments: res });
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   render() {
@@ -42,7 +38,12 @@ class DOTASchedule extends React.Component {
           <List
             dataArray={this.state.tournaments}
             renderRow={tournament => (
-              <ListItem onPress={()=>{NavStore.setTourId(tournament.id); this.props.navigation.navigate('DOTATourSchedule')}} >
+              <ListItem
+                onPress={() => {
+                  NavStore.setTourId(tournament.id);
+                  this.props.navigation.navigate("DOTATourSchedule");
+                }}
+              >
                 <Text>{tournament.name}</Text>
               </ListItem>
             )}

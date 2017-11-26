@@ -13,7 +13,7 @@ import {
 } from "native-base";
 import NavStore from "../../NavStore";
 import Db from "../../Db";
-import Styles from './Styles';
+import Styles from "./styles";
 
 var dota;
 class DOTATalk extends React.Component {
